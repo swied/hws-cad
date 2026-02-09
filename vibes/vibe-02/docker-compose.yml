@@ -1,0 +1,39 @@
+# docker-compose.yml
+# version: '3.8'
+
+services:
+  # Python Backend Service
+  backend:
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
+    command: uvicorn app:app --host 0.0.0.0 --port 8000 --reload
+    volumes:
+      - ./backend:/app
+    ports:
+      - "8000:8000"
+    environment:
+      - PROJECT_NAME=BoardCAD-Redux
+    networks:
+      - boardcad-network
+
+  # React Frontend Service
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    volumes:
+      - ./frontend/src:/app/src
+      - ./frontend/public:/app/public
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_API_URL=http://localhost:8000
+    depends_on:
+      - backend
+    networks:
+      - boardcad-network
+
+networks:
+  boardcad-network:
+    driver: bridge

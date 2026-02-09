@@ -1,0 +1,73 @@
+/* frontend/src/App.css */
+.app-container {
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  background-color: #2a2a2a; /* Dark background for CAD feel */
+  color: #e0e0e0;
+}
+
+.sidebar {
+  width: 320px;
+  background-color: #1e1e1e;
+  border-right: 1px solid #333;
+  padding: 20px;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.3);
+  z-index: 10;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.sidebar h1 {
+  font-size: 1.5rem;
+  margin-top: 0;
+  color: #ff9800; /* BoardCAD Orange */
+}
+
+.canvas-container {
+  flex: 1;
+  background: linear-gradient(180deg, #333 0%, #111 100%);
+  position: relative;
+}
+
+/* Controls Styling */
+.controls h3 {
+  border-bottom: 1px solid #444;
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: #888;
+}
+
+.input-group {
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.input-group label {
+  font-size: 0.9rem;
+  color: #ccc;
+}
+
+.input-group input {
+  background: #333;
+  border: 1px solid #555;
+  color: white;
+  padding: 5px;
+  width: 80px;
+  text-align: right;
+  border-radius: 4px;
+}
+
+.toolbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
