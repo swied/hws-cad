@@ -13,6 +13,7 @@ services:
     ports:
       - "8000:8000"
     environment:
+      - ALLOWED_ORIGINS=http://localhost:3000,http://127.0.0.1:3000,http://0.0.0.0:3000
       - PROJECT_NAME=BoardCAD-Redux
     networks:
       - boardcad-network
@@ -23,8 +24,10 @@ services:
       context: ./frontend
       dockerfile: Dockerfile
     volumes:
-      - ./frontend/src:/app/src
-      - ./frontend/public:/app/public
+      - ./frontend:/app
+      - /app/node_modules
+      # - ./frontend/src:/app/src
+      # - ./frontend/public:/app/public
     ports:
       - "3000:3000"
     environment:
