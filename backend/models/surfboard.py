@@ -20,8 +20,8 @@ class SurfboardModel(BaseModel):
     # Rocker control points (x, y)
     rocker_points: List[Tuple[float, float]]
 
-    class Config:
-        schema_extra = {
+    model_config = {
+        "json_schema_extra": {
             "example": {
                 "id": "123",
                 "name": "Shortboard Classic",
@@ -30,3 +30,4 @@ class SurfboardModel(BaseModel):
                 "rocker_points": [[0, 2], [90, 0], [180, 1]]
             }
         }
+    }

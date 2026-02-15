@@ -5,6 +5,7 @@ import axios from 'axios';
 // Use the environment variable defined in docker-compose.yml, 
 // falling back to localhost if not defined.
 const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:8000';
+// const response = await axios.get(`${API_BASE_URL}/api/board/`);
 
 const useBoardStore = create((set, get) => ({
   boardData: null,

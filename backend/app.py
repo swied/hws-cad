@@ -2,7 +2,7 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from api import board, cam
-from config import settings, ALLOWED_ORIGINS
+from config import settings
 
 app = FastAPI(
     title=settings.PROJECT_NAME,
